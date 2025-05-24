@@ -60,7 +60,7 @@ const addIncome = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO income(commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory) values (?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_user, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]);
+        const [results] = yield conexion.query('INSERT INTO income(commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_user, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]);
         return results;
     }
     catch (err) {
