@@ -8,6 +8,7 @@ CREATE TABLE user (
   email VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 -- Table: Bank Account
 CREATE TABLE bank_account (
   id_bankAccount INT PRIMARY KEY AUTO_INCREMENT,

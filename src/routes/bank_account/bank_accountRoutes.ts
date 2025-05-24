@@ -10,8 +10,8 @@ router.get('/', async (_req: Request, res: Response) => {
 });
 
 // Mostrar un registro específico
-router.get('/:id_bank_account', async (req: Request, res: Response) => {
-    const bank_account = await bank_accountServices.findBank_Account(Number(req.params.id_bank_account));
+router.get('/:id_bankAccount', async (req: Request, res: Response) => {
+    const bank_account = await bank_accountServices.findBank_Account(Number(req.params.id_bankAccount));
     res.send(bank_account);
 });
 
