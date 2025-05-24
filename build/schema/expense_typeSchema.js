@@ -1,11 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Expense_TypeSchema = void 0;
 //Validaciones
 //Importamos el paquete (zod): Sirve para validar los datos que ingresa el usuario sean seguros y correctos
-import { z } from 'zod';
-
+const zod_1 = require("zod");
 const descripcionRegEx = new RegExp(/^[a-zA-Z\s]+$/);
 // Esquema de validaciones para clientes
-export const Expense_TypeSchema = z.object({
-    name_expenseType: z.string().regex(descripcionRegEx, {
+exports.Expense_TypeSchema = zod_1.z.object({
+    name_expenseType: zod_1.z.string().regex(descripcionRegEx, {
         message: "El nombre solo puede contener letras y espacios."
     }).min(2, "Mínimo 2 caracteres").max(30, "Máximo 30 caracteres")
 });
