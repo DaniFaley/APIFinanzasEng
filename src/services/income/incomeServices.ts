@@ -55,7 +55,7 @@ export const addIncome = async(nuevo:IncomeAgregar) => {
 export const updateIncome = async (modificado:Income) => {
     try {
         //Agregar validaciones
-        const [results] = await conexion.query('UPDATE income SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount=?,fk_id_incomeCategory=?, WHERE id_income=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_user,modificado.fk_id_bankAccount,modificado.fk_id_incomeCategory,modificado.id_income]);
+        const [results] = await conexion.query('UPDATE income SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount=?,fk_id_incomeCategory=? WHERE id_income=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_user,modificado.fk_id_bankAccount,modificado.fk_id_incomeCategory,modificado.id_income]);
         return results;
     }catch(err){
         return{error: "No se puede modificar Income"}
