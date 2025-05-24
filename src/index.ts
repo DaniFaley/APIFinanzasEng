@@ -7,6 +7,7 @@ import incomeRoutes from './routes/income/incomeRoutes';
 import expense_categoryRoutes from './routes/expense_category/expense_categoryRoutes';
 import expense_typeRoutes from './routes/expense_type/expense_typeRoutes';
 import expense_storeRoutes from './routes/expense_store/expense_storeRoutes';
+import expense from './routes/expense/expenseRoutes';
 
 // Importar configuración de variables de entorno
 import { PORT } from './config';
@@ -25,6 +26,7 @@ app.use('/api/income', incomeRoutes);
 app.use('/api/expense_category', expense_categoryRoutes);
 app.use('/api/expense_type', expense_typeRoutes);
 app.use('/api/expense_store', expense_storeRoutes);
+app.use('/api/expense', expense);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
