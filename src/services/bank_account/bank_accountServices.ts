@@ -23,7 +23,7 @@ export const getBank_Account = async () =>{
         const [results] = await conexion.query('SELECT * FROM bank_account');
         return results;
     }catch(err){
-        return{error: "No se puede obterner la bank_account"};
+        return{error: "No se puede obterner el registro"};
     }
 }
 //Para mostrar uno en especifico de la tabla cuenta
@@ -32,7 +32,7 @@ export const findBank_Account = async (id_bankAccount:number) =>{
         const [results] = await conexion.query('SELECT * FROM bank_account WHERE id_bankAccount = ? LIMIT 1', id_bankAccount);
         return results;
     }catch(err){
-        return {error: "No se encuentra esa bank_account"};
+        return {error: "No se encontro el registro"};
     }
 }
 //Para insertar a la tabla bank_account: No se incluye el id de la tabla
@@ -48,7 +48,7 @@ export const addBank_Account = async(nuevo:Bank_AccountAgregar) => {
         const [results] = await conexion.query('INSERT INTO bank_account(name_bankAccount,fk_id_user) values (?,?)',[nuevo.name_bankAccount,nuevo.fk_id_user]);
         return results;
     }catch(err){
-        return{error: "No se puede agregar la bank_account"}
+        return{error: "No se puede agregar el registro"}
     }
 }
 //Para modificar un registro de la tabla bank_account: Se incluye el id de la tabla al final de los elementos
@@ -58,7 +58,7 @@ export const updateBank_Account = async (modificado:Bank_Account) => {
         const [results] = await conexion.query('UPDATE bank_account SET name_bankAccount=?,fk_id_user=? WHERE id_bankAccount=?',[modificado.name_bankAccount,modificado.fk_id_user,modificado.id_bankAccount]);
         return results;
     }catch(err){
-        return{error: "No se puede modificar bank_account"}
+        return{error: "No se puede modificar el registro"}
     }
 }
 //Eliminar un registro de la tabla Bank_Account
@@ -68,6 +68,6 @@ export const deleteBank_Account = async(id_bankAccount:number) => {
         const [results] = await conexion.query('DELETE FROM bank_account WHERE id_bankAccount=?',[id_bankAccount]);
         return results;
     }catch(err){
-        return {error: "No se puede eliminar"}
+        return {error: "No se puede eliminar el registro"}
     }
 }

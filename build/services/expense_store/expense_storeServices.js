@@ -35,7 +35,7 @@ const getExpense_Store = () => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la expense_store" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getExpense_Store = getExpense_Store;
@@ -46,7 +46,7 @@ const findExpense_Store = (id_expenseStore) => __awaiter(void 0, void 0, void 0,
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa expense_store" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findExpense_Store = findExpense_Store;
@@ -64,7 +64,7 @@ const addExpense_Store = (nuevo) => __awaiter(void 0, void 0, void 0, function* 
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la expense_store" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addExpense_Store = addExpense_Store;
@@ -76,7 +76,7 @@ const updateExpense_Store = (modificado) => __awaiter(void 0, void 0, void 0, fu
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar expense_store" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateExpense_Store = updateExpense_Store;
@@ -88,7 +88,7 @@ const deleteExpense_Store = (id_expenseStore) => __awaiter(void 0, void 0, void 
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteExpense_Store = deleteExpense_Store;

@@ -35,7 +35,7 @@ const getIncome_Category = () => __awaiter(void 0, void 0, void 0, function* () 
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la income_category" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getIncome_Category = getIncome_Category;
@@ -46,7 +46,7 @@ const findIncome_Category = (id_incomeCategory) => __awaiter(void 0, void 0, voi
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa income_category" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findIncome_Category = findIncome_Category;
@@ -64,7 +64,7 @@ const addIncome_Category = (nuevo) => __awaiter(void 0, void 0, void 0, function
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la income_category" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addIncome_Category = addIncome_Category;
@@ -76,7 +76,7 @@ const updateIncome_Category = (modificado) => __awaiter(void 0, void 0, void 0, 
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar income_category" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateIncome_Category = updateIncome_Category;
@@ -88,7 +88,7 @@ const deleteIncome_Category = (id_incomeCategory) => __awaiter(void 0, void 0, v
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteIncome_Category = deleteIncome_Category;

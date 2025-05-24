@@ -35,7 +35,7 @@ const getBank_Account = () => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la bank_account" };
+        return { error: "No se puede obterner el registro" };
     }
 });
 exports.getBank_Account = getBank_Account;
@@ -46,7 +46,7 @@ const findBank_Account = (id_bankAccount) => __awaiter(void 0, void 0, void 0, f
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa bank_account" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findBank_Account = findBank_Account;
@@ -64,7 +64,7 @@ const addBank_Account = (nuevo) => __awaiter(void 0, void 0, void 0, function* (
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la bank_account" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addBank_Account = addBank_Account;
@@ -76,7 +76,7 @@ const updateBank_Account = (modificado) => __awaiter(void 0, void 0, void 0, fun
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar bank_account" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateBank_Account = updateBank_Account;
@@ -88,7 +88,7 @@ const deleteBank_Account = (id_bankAccount) => __awaiter(void 0, void 0, void 0,
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteBank_Account = deleteBank_Account;

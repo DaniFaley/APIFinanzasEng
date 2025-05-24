@@ -35,7 +35,7 @@ const getIncome = () => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la Income" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getIncome = getIncome;
@@ -46,7 +46,7 @@ const findIncome = (id_income) => __awaiter(void 0, void 0, void 0, function* ()
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa Income" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findIncome = findIncome;
@@ -64,7 +64,7 @@ const addIncome = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la Income" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addIncome = addIncome;
@@ -76,7 +76,7 @@ const updateIncome = (modificado) => __awaiter(void 0, void 0, void 0, function*
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar Income" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateIncome = updateIncome;
@@ -88,7 +88,7 @@ const deleteIncome = (id_income) => __awaiter(void 0, void 0, void 0, function* 
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteIncome = deleteIncome;

@@ -23,7 +23,7 @@ export const getTransaction = async () =>{
         const [results] = await conexion.query('SELECT * FROM transaction_bank_account');
         return results;
     }catch(err){
-        return{error: "No se puede obterner la Transaction"};
+        return{error: "No se puede obtener el registro"};
     }
 }
 //Para mostrar uno en especifico de la tabla cuenta
@@ -32,7 +32,7 @@ export const findTransaction = async (id_transaction_bank_account:number) =>{
         const [results] = await conexion.query('SELECT * FROM transaction_bank_account WHERE id_transaction_bank_account = ? LIMIT 1', id_transaction_bank_account);
         return results;
     }catch(err){
-        return {error: "No se encuentra esa Transaction"};
+        return {error: "No se encontro el registro"};
     }
 }
 //Para insertar a la tabla Transaction: No se incluye el id de la tabla
@@ -48,7 +48,7 @@ export const addTransaction = async(nuevo:TransactionAgregar) => {
         const [results] = await conexion.query('INSERT INTO transaction_bank_account(commentary,amount,date,fk_id_user,fk_id_bankAccount_incoming,fk_id_bankAccount_exit) values (?,?,?,?,?,?)',[nuevo.commentary,nuevo.amount,nuevo.date,nuevo.fk_id_user,nuevo.fk_id_bankAccount_incoming,nuevo.fk_id_bankAccount_exit]);
         return results;
     }catch(err){
-        return{error: "No se puede agregar la Transaction"}
+        return{error: "No se puede agregar el registro"}
     }
 }
 //Para modificar un registro de la tabla Transaction: Se incluye el id de la tabla al final de los elementos
@@ -58,7 +58,7 @@ export const updateTransaction = async (modificado:Transaction) => {
         const [results] = await conexion.query('UPDATE transaction_bank_account SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount_incoming=?,fk_id_bankAccount_exit=? WHERE id_transaction_bank_account=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_user,modificado.fk_id_bankAccount_incoming,modificado.fk_id_bankAccount_exit,modificado.id_transaction_bank_account]);
         return results;
     }catch(err){
-        return{error: "No se puede modificar Transaction"}
+        return{error: "No se puede modificar el registro"}
     }
 }
 //Eliminar un registro de la tabla Transaction
@@ -68,6 +68,6 @@ export const deleteTransaction = async(id_transaction_bank_account:number) => {
         const [results] = await conexion.query('DELETE FROM transaction_bank_account WHERE id_transaction_bank_account=?',[id_transaction_bank_account]);
         return results;
     }catch(err){
-        return {error: "No se puede eliminar"}
+        return {error: "No se puede eliminar el registro"}
     }
 }

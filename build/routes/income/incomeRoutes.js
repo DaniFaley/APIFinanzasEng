@@ -73,7 +73,7 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.send(nuevo);
     }
     catch (e) {
-        res.status(400).send("No se puede agregar la cuenta bancaria");
+        res.status(400).send("No se puede agregar");
     }
 }));
 // Modificar
@@ -92,7 +92,7 @@ router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.send(modificado);
     }
     catch (e) {
-        res.status(400).send("Error en los datos");
+        res.status(400).send("No se puede modificar");
     }
 }));
 // Eliminar
@@ -103,7 +103,7 @@ router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.send(eliminado);
     }
     catch (e) {
-        res.status(400).send("Error al eliminar");
+        res.status(400).send("No se puede eliminar");
     }
 }));
 exports.default = router;

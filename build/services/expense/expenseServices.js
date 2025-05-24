@@ -35,7 +35,7 @@ const getExpense = () => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la Expense" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getExpense = getExpense;
@@ -46,7 +46,7 @@ const findExpense = (id_expense) => __awaiter(void 0, void 0, void 0, function* 
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa Expense" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findExpense = findExpense;
@@ -64,7 +64,7 @@ const addExpense = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la Expense" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addExpense = addExpense;
@@ -76,7 +76,7 @@ const updateExpense = (modificado) => __awaiter(void 0, void 0, void 0, function
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar Expense" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateExpense = updateExpense;
@@ -88,7 +88,7 @@ const deleteExpense = (id_expense) => __awaiter(void 0, void 0, void 0, function
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteExpense = deleteExpense;

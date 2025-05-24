@@ -23,7 +23,7 @@ export const getExpense_Store = async () =>{
         const [results] = await conexion.query('SELECT * FROM expense_store');
         return results;
     }catch(err){
-        return{error: "No se puede obterner la expense_store"};
+        return{error: "No se puede obtener el registro"};
     }
 }
 //Para mostrar uno en especifico de la tabla cuenta
@@ -32,7 +32,7 @@ export const findExpense_Store = async (id_expenseStore:number) =>{
         const [results] = await conexion.query('SELECT * FROM expense_store WHERE id_expenseStore = ? LIMIT 1', id_expenseStore);
         return results;
     }catch(err){
-        return {error: "No se encuentra esa expense_store"};
+        return {error: "No se encontro el registro"};
     }
 }
 //Para insertar a la tabla Expense_Store: No se incluye el id de la tabla
@@ -48,7 +48,7 @@ export const addExpense_Store = async(nuevo:Expense_StoreAgregar) => {
         const [results] = await conexion.query('INSERT INTO expense_store(name_store,fk_id_user) values (?,?)',[nuevo.name_store,nuevo.fk_id_user]);
         return results;
     }catch(err){
-        return{error: "No se puede agregar la expense_store"}
+        return{error: "No se puede agregar el registro"}
     }
 }
 //Para modificar un registro de la tabla Expense_Store: Se incluye el id de la tabla al final de los elementos
@@ -58,7 +58,7 @@ export const updateExpense_Store = async (modificado:Expense_Store) => {
         const [results] = await conexion.query('UPDATE expense_store SET name_store=?,fk_id_user=? WHERE id_expenseStore=?',[modificado.name_store,modificado.fk_id_user,modificado.id_expenseStore]);
         return results;
     }catch(err){
-        return{error: "No se puede modificar expense_store"}
+        return{error: "No se puede modificar el registro"}
     }
 }
 //Eliminar un registro de la tabla Expense_Store
@@ -68,6 +68,6 @@ export const deleteExpense_Store = async(id_expenseStore:number) => {
         const [results] = await conexion.query('DELETE FROM expense_store WHERE id_expenseStore=?',[id_expenseStore]);
         return results;
     }catch(err){
-        return {error: "No se puede eliminar"}
+        return {error: "No se puede eliminar el registro"}
     }
 }

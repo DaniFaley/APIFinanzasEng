@@ -23,7 +23,7 @@ export const getExpense_Category = async () =>{
         const [results] = await conexion.query('SELECT * FROM expense_category');
         return results;
     }catch(err){
-        return{error: "No se puede obterner la expense_category"};
+        return{error: "No se puede obtener el registro"};
     }
 }
 //Para mostrar uno en especifico de la tabla cuenta
@@ -32,7 +32,7 @@ export const findExpense_Category = async (id_expenseCategory:number) =>{
         const [results] = await conexion.query('SELECT * FROM expense_category WHERE id_expenseCategory = ? LIMIT 1', id_expenseCategory);
         return results;
     }catch(err){
-        return {error: "No se encuentra esa expense_category"};
+        return {error: "No se encontro el registro"};
     }
 }
 //Para insertar a la tabla Expense_Category: No se incluye el id de la tabla
@@ -48,7 +48,7 @@ export const addExpense_Category = async(nuevo:Expense_CategoryAgregar) => {
         const [results] = await conexion.query('INSERT INTO expense_category(name_expenseCategory,fk_id_user) values (?,?)',[nuevo.name_expenseCategory,nuevo.fk_id_user]);
         return results;
     }catch(err){
-        return{error: "No se puede agregar la Expense_Category"}
+        return{error: "No se puede agregar el registro"}
     }
 }
 //Para modificar un registro de la tabla Expense_Category: Se incluye el id de la tabla al final de los elementos
@@ -58,7 +58,7 @@ export const updateExpense_Category = async (modificado:Expense_Category) => {
         const [results] = await conexion.query('UPDATE expense_category SET name_expenseCategory=?,fk_id_user=? WHERE id_expenseCategory=?',[modificado.name_expenseCategory,modificado.fk_id_user,modificado.id_expenseCategory]);
         return results;
     }catch(err){
-        return{error: "No se puede modificar Expense_Category"}
+        return{error: "No se puede modificar el registro"}
     }
 }
 //Eliminar un registro de la tabla Expense_Category
@@ -68,6 +68,6 @@ export const deleteExpense_Category = async(id_expenseCategory:number) => {
         const [results] = await conexion.query('DELETE FROM expense_category WHERE id_expenseCategory=?',[id_expenseCategory]);
         return results;
     }catch(err){
-        return {error: "No se puede eliminar"}
+        return {error: "No se puede eliminar el registro"}
     }
 }

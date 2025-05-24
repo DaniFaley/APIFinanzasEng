@@ -23,7 +23,7 @@ export const getIncome = async () =>{
         const [results] = await conexion.query('SELECT * FROM income');
         return results;
     }catch(err){
-        return{error: "No se puede obterner la Income"};
+        return{error: "No se puede obtener el registro"};
     }
 }
 //Para mostrar uno en especifico de la tabla cuenta
@@ -32,7 +32,7 @@ export const findIncome = async (id_income:number) =>{
         const [results] = await conexion.query('SELECT * FROM income WHERE id_income = ? LIMIT 1', id_income);
         return results;
     }catch(err){
-        return {error: "No se encuentra esa Income"};
+        return {error: "No se encontro el registro"};
     }
 }
 //Para insertar a la tabla Income: No se incluye el id de la tabla
@@ -48,7 +48,7 @@ export const addIncome = async(nuevo:IncomeAgregar) => {
         const [results] = await conexion.query('INSERT INTO income(commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?,?)',[nuevo.commentary,nuevo.amount,nuevo.date,nuevo.fk_id_user,nuevo.fk_id_bankAccount,nuevo.fk_id_incomeCategory]);
         return results;
     }catch(err){
-        return{error: "No se puede agregar la Income"}
+        return{error: "No se puede agregar el registro"}
     }
 }
 //Para modificar un registro de la tabla Income: Se incluye el id de la tabla al final de los elementos
@@ -58,7 +58,7 @@ export const updateIncome = async (modificado:Income) => {
         const [results] = await conexion.query('UPDATE income SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount=?,fk_id_incomeCategory=? WHERE id_income=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_user,modificado.fk_id_bankAccount,modificado.fk_id_incomeCategory,modificado.id_income]);
         return results;
     }catch(err){
-        return{error: "No se puede modificar Income"}
+        return{error: "No se puede modificar el registro"}
     }
 }
 //Eliminar un registro de la tabla Income
@@ -68,6 +68,6 @@ export const deleteIncome = async(id_income:number) => {
         const [results] = await conexion.query('DELETE FROM income WHERE id_income=?',[id_income]);
         return results;
     }catch(err){
-        return {error: "No se puede eliminar"}
+        return {error: "No se puede eliminar el registro"}
     }
 }

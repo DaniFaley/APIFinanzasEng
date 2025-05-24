@@ -25,7 +25,7 @@ router.post('/', async (req: Request, res: Response) => {
         });
         res.send(nuevo);
     } catch (e) {
-        res.status(400).send("No se puede agregar la cuenta bancaria");
+        res.status(400).send("No se puede agregar");
     }
 });
 
@@ -40,7 +40,7 @@ router.put('/', async (req: Request, res: Response) => {
         });
         res.send(modificado);
     } catch (e) {
-        res.status(400).send("Error en los datos");
+        res.status(400).send("No se puede agregar");
     }
 });
 
@@ -51,7 +51,7 @@ router.delete('/', async (req: Request, res: Response) => {
         const eliminado = await bank_accountServices.deleteBank_Account(Number(id_bankAccount));
         res.send(eliminado);
     } catch (e) {
-        res.status(400).send("Error al eliminar");
+        res.status(400).send("No se puede eliminar");
     }
 });
 

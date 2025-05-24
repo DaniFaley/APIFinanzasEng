@@ -29,7 +29,7 @@ router.post('/', async (req: Request, res: Response) => {
         });
         res.send(nuevo);
     } catch (e) {
-        res.status(400).send("No se puede agregar la cuenta bancaria");
+        res.status(400).send("No se puede agregar");
     }
 });
 
@@ -48,7 +48,7 @@ router.put('/', async (req: Request, res: Response) => {
         });
         res.send(modificado);
     } catch (e) {
-        res.status(400).send("Error en los datos");
+        res.status(400).send("No se puede modificar");
     }
 });
 
@@ -59,7 +59,7 @@ router.delete('/', async (req: Request, res: Response) => {
         const eliminado = await incomeServices.deleteIncome(Number(id_income));
         res.send(eliminado);
     } catch (e) {
-        res.status(400).send("Error al eliminar");
+        res.status(400).send("No se puede eliminar");
     }
 });
 

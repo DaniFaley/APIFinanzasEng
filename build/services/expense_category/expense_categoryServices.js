@@ -35,7 +35,7 @@ const getExpense_Category = () => __awaiter(void 0, void 0, void 0, function* ()
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la expense_category" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getExpense_Category = getExpense_Category;
@@ -46,7 +46,7 @@ const findExpense_Category = (id_expenseCategory) => __awaiter(void 0, void 0, v
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa expense_category" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findExpense_Category = findExpense_Category;
@@ -64,7 +64,7 @@ const addExpense_Category = (nuevo) => __awaiter(void 0, void 0, void 0, functio
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la Expense_Category" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addExpense_Category = addExpense_Category;
@@ -76,7 +76,7 @@ const updateExpense_Category = (modificado) => __awaiter(void 0, void 0, void 0,
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar Expense_Category" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateExpense_Category = updateExpense_Category;
@@ -88,7 +88,7 @@ const deleteExpense_Category = (id_expenseCategory) => __awaiter(void 0, void 0,
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteExpense_Category = deleteExpense_Category;

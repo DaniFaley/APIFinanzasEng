@@ -35,7 +35,7 @@ const getTransaction = () => __awaiter(void 0, void 0, void 0, function* () {
         return results;
     }
     catch (err) {
-        return { error: "No se puede obterner la Transaction" };
+        return { error: "No se puede obtener el registro" };
     }
 });
 exports.getTransaction = getTransaction;
@@ -46,7 +46,7 @@ const findTransaction = (id_transaction_bank_account) => __awaiter(void 0, void 
         return results;
     }
     catch (err) {
-        return { error: "No se encuentra esa Transaction" };
+        return { error: "No se encontro el registro" };
     }
 });
 exports.findTransaction = findTransaction;
@@ -64,7 +64,7 @@ const addTransaction = (nuevo) => __awaiter(void 0, void 0, void 0, function* ()
         return results;
     }
     catch (err) {
-        return { error: "No se puede agregar la Transaction" };
+        return { error: "No se puede agregar el registro" };
     }
 });
 exports.addTransaction = addTransaction;
@@ -76,7 +76,7 @@ const updateTransaction = (modificado) => __awaiter(void 0, void 0, void 0, func
         return results;
     }
     catch (err) {
-        return { error: "No se puede modificar Transaction" };
+        return { error: "No se puede modificar el registro" };
     }
 });
 exports.updateTransaction = updateTransaction;
@@ -88,7 +88,7 @@ const deleteTransaction = (id_transaction_bank_account) => __awaiter(void 0, voi
         return results;
     }
     catch (err) {
-        return { error: "No se puede eliminar" };
+        return { error: "No se puede eliminar el registro" };
     }
 });
 exports.deleteTransaction = deleteTransaction;
