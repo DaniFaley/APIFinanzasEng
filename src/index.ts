@@ -4,6 +4,7 @@ import cors from 'cors';
 import bank_accountRoutes from './routes/bank_account/bank_accountRoutes';
 import income_categoryRoutes from './routes/income_category/income_categoryRoutes';
 import incomeRoutes from './routes/income/incomeRoutes';
+import expense_categoryRoutes from './routes/expense_category/expense_categoryRoutes';
 
 // Importar configuración de variables de entorno
 import { PORT } from './config';
@@ -19,6 +20,7 @@ app.use(cors());
 app.use('/api/bank_account', bank_accountRoutes);
 app.use('/api/income_category', income_categoryRoutes);
 app.use('/api/income', incomeRoutes);
+app.use('/api/expense_category', expense_categoryRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
