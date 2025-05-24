@@ -46,25 +46,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const bank_accountServices = __importStar(require("../../services/bank_account/bank_accountServices"));
+const incomeServices = __importStar(require("../../services/income/incomeServices"));
 const router = express_1.default.Router();
 // Mostrar todos los registros
 router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const bank_account = yield bank_accountServices.getBank_Account();
-    res.send(bank_account);
+    const income = yield incomeServices.getIncome();
+    res.send(income);
 }));
 // Mostrar un registro específico
-router.get('/:id_bankAccount', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const bank_account = yield bank_accountServices.findBank_Account(Number(req.params.id_bankAccount));
-    res.send(bank_account);
+router.get('/:id_income', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const income = yield incomeServices.findIncome(Number(req.params.id_income));
+    res.send(income);
 }));
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_bankAccount, fk_id_user } = req.body;
-        const nuevo = yield bank_accountServices.addBank_Account({
-            name_bankAccount,
-            fk_id_user
+        const { commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
+        const nuevo = yield incomeServices.addIncome({
+            commentary,
+            amount,
+            date,
+            fk_id_user,
+            fk_id_bankAccount,
+            fk_id_incomeCategory
         });
         res.send(nuevo);
     }
@@ -75,11 +79,15 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_bankAccount, name_bankAccount, fk_id_user } = req.body;
-        const modificado = yield bank_accountServices.updateBank_Account({
-            id_bankAccount,
-            name_bankAccount,
-            fk_id_user
+        const { id_income, commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
+        const modificado = yield incomeServices.updateIncome({
+            id_income,
+            commentary,
+            amount,
+            date,
+            fk_id_user,
+            fk_id_bankAccount,
+            fk_id_incomeCategory
         });
         res.send(modificado);
     }
@@ -90,8 +98,8 @@ router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Eliminar
 router.delete('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_bankAccount } = req.body;
-        const eliminado = yield bank_accountServices.deleteBank_Account(Number(id_bankAccount));
+        const { id_income } = req.body;
+        const eliminado = yield incomeServices.deleteIncome(Number(id_income));
         res.send(eliminado);
     }
     catch (e) {
