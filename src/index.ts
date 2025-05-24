@@ -5,6 +5,7 @@ import bank_accountRoutes from './routes/bank_account/bank_accountRoutes';
 import income_categoryRoutes from './routes/income_category/income_categoryRoutes';
 import incomeRoutes from './routes/income/incomeRoutes';
 import expense_categoryRoutes from './routes/expense_category/expense_categoryRoutes';
+import expense_typeRoutes from './routes/expense_type/expense_typeRoutes';
 
 // Importar configuración de variables de entorno
 import { PORT } from './config';
@@ -21,6 +22,7 @@ app.use('/api/bank_account', bank_accountRoutes);
 app.use('/api/income_category', income_categoryRoutes);
 app.use('/api/income', incomeRoutes);
 app.use('/api/expense_category', expense_categoryRoutes);
+app.use('/api/expense_type', expense_typeRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
