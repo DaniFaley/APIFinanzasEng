@@ -35,7 +35,7 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_income, commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
+        const { id_income,commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
         const modificado = await incomeServices.updateIncome({
             id_income,
             commentary,
