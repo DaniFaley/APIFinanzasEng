@@ -45,7 +45,7 @@ export const addBank_Account = async(nuevo:Bank_AccountAgregar) => {
             return {error: validacion.error};
         }
         //---------------------
-        const [results] = await conexion.query('INSERT INTO bank_account(name_bankAccount,fk_id_user) values (?,?)',[nuevo.name_bankAccount,nuevo.fk_id_user]);
+        const [results] = await conexion.query('INSERT INTO bank_account(name_bankAccount) values (?)',[nuevo.name_bankAccount]);
         return results;
     }catch(err){
         return{error: "No se puede agregar el registro"}
@@ -55,7 +55,7 @@ export const addBank_Account = async(nuevo:Bank_AccountAgregar) => {
 export const updateBank_Account = async (modificado:Bank_Account) => {
     try {
         //Agregar validaciones
-        const [results] = await conexion.query('UPDATE bank_account SET name_bankAccount=?,fk_id_user=? WHERE id_bankAccount=?',[modificado.name_bankAccount,modificado.fk_id_user,modificado.id_bankAccount]);
+        const [results] = await conexion.query('UPDATE bank_account SET name_bankAccount=? WHERE id_bankAccount=?',[modificado.name_bankAccount,modificado.id_bankAccount]);
         return results;
     }catch(err){
         return{error: "No se puede modificar el registro"}

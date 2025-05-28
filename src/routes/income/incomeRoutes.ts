@@ -18,12 +18,11 @@ router.get('/:id_income', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
+        const { commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
         const nuevo = await incomeServices.addIncome({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_incomeCategory
         });
@@ -36,13 +35,12 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_income, commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
+        const { id_income, commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory } = req.body;
         const modificado = await incomeServices.updateIncome({
             id_income,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_incomeCategory
         });

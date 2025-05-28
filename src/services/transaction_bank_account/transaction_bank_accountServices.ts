@@ -45,7 +45,7 @@ export const addTransaction = async(nuevo:TransactionAgregar) => {
             return {error: validacion.error};
         }
         //---------------------
-        const [results] = await conexion.query('INSERT INTO transaction_bank_account(commentary,amount,date,fk_id_user,fk_id_bankAccount_incoming,fk_id_bankAccount_exit) values (?,?,?,?,?,?)',[nuevo.commentary,nuevo.amount,nuevo.date,nuevo.fk_id_user,nuevo.fk_id_bankAccount_incoming,nuevo.fk_id_bankAccount_exit]);
+        const [results] = await conexion.query('INSERT INTO transaction_bank_account(commentary,amount,date,fk_id_bankAccount_incoming,fk_id_bankAccount_exit) values (?,?,?,?,?)',[nuevo.commentary,nuevo.amount,nuevo.date,nuevo.fk_id_bankAccount_incoming,nuevo.fk_id_bankAccount_exit]);
         return results;
     }catch(err){
         return{error: "No se puede agregar el registro"}
@@ -55,7 +55,7 @@ export const addTransaction = async(nuevo:TransactionAgregar) => {
 export const updateTransaction = async (modificado:Transaction) => {
     try {
         //Agregar validaciones
-        const [results] = await conexion.query('UPDATE transaction_bank_account SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount_incoming=?,fk_id_bankAccount_exit=? WHERE id_transaction_bank_account=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_user,modificado.fk_id_bankAccount_incoming,modificado.fk_id_bankAccount_exit,modificado.id_transaction_bank_account]);
+        const [results] = await conexion.query('UPDATE transaction_bank_account SET commentary=?,amount=?,date=?,fk_id_bankAccount_incoming=?,fk_id_bankAccount_exit=? WHERE id_transaction_bank_account=?',[modificado.commentary,modificado.amount,modificado.date,modificado.fk_id_bankAccount_incoming,modificado.fk_id_bankAccount_exit,modificado.id_transaction_bank_account]);
         return results;
     }catch(err){
         return{error: "No se puede modificar el registro"}

@@ -18,10 +18,9 @@ router.get('/:id_bankAccount', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { name_bankAccount, fk_id_user } = req.body;
+        const { name_bankAccount } = req.body;
         const nuevo = await bank_accountServices.addBank_Account({
-            name_bankAccount,
-            fk_id_user
+            name_bankAccount
         });
         res.send(nuevo);
     } catch (e) {
@@ -32,11 +31,10 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_bankAccount, name_bankAccount, fk_id_user } = req.body;
+        const { id_bankAccount, name_bankAccount } = req.body;
         const modificado = await bank_accountServices.updateBank_Account({
             id_bankAccount,
-            name_bankAccount,
-            fk_id_user
+            name_bankAccount
         });
         res.send(modificado);
     } catch (e) {

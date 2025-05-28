@@ -45,7 +45,7 @@ export const addExpense_Category = async(nuevo:Expense_CategoryAgregar) => {
             return {error: validacion.error};
         }
         //---------------------
-        const [results] = await conexion.query('INSERT INTO expense_category(name_expenseCategory,fk_id_user) values (?,?)',[nuevo.name_expenseCategory,nuevo.fk_id_user]);
+        const [results] = await conexion.query('INSERT INTO expense_category(name_expenseCategory) values (?)',[nuevo.name_expenseCategory]);
         return results;
     }catch(err){
         return{error: "No se puede agregar el registro"}
@@ -55,7 +55,7 @@ export const addExpense_Category = async(nuevo:Expense_CategoryAgregar) => {
 export const updateExpense_Category = async (modificado:Expense_Category) => {
     try {
         //Agregar validaciones
-        const [results] = await conexion.query('UPDATE expense_category SET name_expenseCategory=?,fk_id_user=? WHERE id_expenseCategory=?',[modificado.name_expenseCategory,modificado.fk_id_user,modificado.id_expenseCategory]);
+        const [results] = await conexion.query('UPDATE expense_category SET name_expenseCategory=? WHERE id_expenseCategory=?',[modificado.name_expenseCategory,modificado.id_expenseCategory]);
         return results;
     }catch(err){
         return{error: "No se puede modificar el registro"}

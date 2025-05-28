@@ -3,7 +3,6 @@ export interface Transaction{
     commentary: string,
     amount: number,
     date: string,
-    fk_id_user: number,
     fk_id_bankAccount_incoming: number,
     fk_id_bankAccount_exit: number
 }

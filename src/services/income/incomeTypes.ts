@@ -3,7 +3,6 @@ export interface Income{
     commentary: string,
     amount: number,
     date: string,
-    fk_id_user: number,
     fk_id_bankAccount: number,
     fk_id_incomeCategory: number
 }

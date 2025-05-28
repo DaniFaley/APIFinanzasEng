@@ -18,10 +18,9 @@ router.get('/:id_expenseStore', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { name_store, fk_id_user } = req.body;
+        const { name_store } = req.body;
         const nuevo = await expense_storeServices.addExpense_Store({
-            name_store,
-            fk_id_user
+            name_store
         });
         res.send(nuevo);
     } catch (e) {
@@ -32,11 +31,10 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_expenseStore, name_store, fk_id_user } = req.body;
+        const { id_expenseStore, name_store } = req.body;
         const modificado = await expense_storeServices.updateExpense_Store({
             id_expenseStore,
-            name_store,
-            fk_id_user
+            name_store
         });
         res.send(modificado);
     } catch (e) {

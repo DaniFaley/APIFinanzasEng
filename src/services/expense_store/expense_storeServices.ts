@@ -45,7 +45,7 @@ export const addExpense_Store = async(nuevo:Expense_StoreAgregar) => {
             return {error: validacion.error};
         }
         //---------------------
-        const [results] = await conexion.query('INSERT INTO expense_store(name_store,fk_id_user) values (?,?)',[nuevo.name_store,nuevo.fk_id_user]);
+        const [results] = await conexion.query('INSERT INTO expense_store(name_store) values (?)',[nuevo.name_store]);
         return results;
     }catch(err){
         return{error: "No se puede agregar el registro"}
@@ -55,7 +55,7 @@ export const addExpense_Store = async(nuevo:Expense_StoreAgregar) => {
 export const updateExpense_Store = async (modificado:Expense_Store) => {
     try {
         //Agregar validaciones
-        const [results] = await conexion.query('UPDATE expense_store SET name_store=?,fk_id_user=? WHERE id_expenseStore=?',[modificado.name_store,modificado.fk_id_user,modificado.id_expenseStore]);
+        const [results] = await conexion.query('UPDATE expense_store SET name_store=? WHERE id_expenseStore=?',[modificado.name_store,modificado.id_expenseStore]);
         return results;
     }catch(err){
         return{error: "No se puede modificar el registro"}

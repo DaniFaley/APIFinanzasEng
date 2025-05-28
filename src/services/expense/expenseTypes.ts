@@ -2,8 +2,7 @@ export interface Expense{
     id_expense: number,
     commentary: string,
     amount: number,
-    date: string,
-    fk_id_user: number,
+    date: string
     fk_id_bankAccount: number,
     fk_id_expenseCategory: number,
     fk_id_expenseType: number,

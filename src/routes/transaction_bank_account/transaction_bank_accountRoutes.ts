@@ -18,12 +18,11 @@ router.get('/:id_transaction_bank_account', async (req: Request, res: Response) 
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { commentary,amount,date,fk_id_user,fk_id_bankAccount_incoming,fk_id_bankAccount_exit } = req.body;
+        const { commentary,amount,date,fk_id_bankAccount_incoming,fk_id_bankAccount_exit } = req.body;
         const nuevo = await transactionServices.addTransaction({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount_incoming,
             fk_id_bankAccount_exit
         });
@@ -36,13 +35,12 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_transaction_bank_account, commentary,amount,date,fk_id_user,fk_id_bankAccount_incoming,fk_id_bankAccount_exit } = req.body;
+        const { id_transaction_bank_account, commentary,amount,date,fk_id_bankAccount_incoming,fk_id_bankAccount_exit } = req.body;
         const modificado = await transactionServices.updateTransaction({
             id_transaction_bank_account,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount_incoming,
             fk_id_bankAccount_exit
         });

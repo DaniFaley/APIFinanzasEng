@@ -18,10 +18,9 @@ router.get('/:id_expenseType', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { name_expenseType, fk_id_user } = req.body;
+        const { name_expenseType } = req.body;
         const nuevo = await expense_typeServices.addExpense_Type({
-            name_expenseType,
-            fk_id_user
+            name_expenseType
         });
         res.send(nuevo);
     } catch (e) {
@@ -32,11 +31,10 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_expenseType, name_expenseType, fk_id_user } = req.body;
+        const { id_expenseType, name_expenseType } = req.body;
         const modificado = await expense_typeServices.updateExpense_Type({
             id_expenseType,
-            name_expenseType,
-            fk_id_user
+            name_expenseType
         });
         res.send(modificado);
     } catch (e) {

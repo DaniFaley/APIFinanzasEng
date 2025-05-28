@@ -18,12 +18,11 @@ router.get('/:id_expense', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore } = req.body;
+        const { commentary,amount,date,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore } = req.body;
         const nuevo = await expenseServices.addExpense({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_expenseCategory,
             fk_id_expenseType,
@@ -38,13 +37,12 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_expense, commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore } = req.body;
+        const { id_expense, commentary,amount,date,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore } = req.body;
         const modificado = await expenseServices.updateExpense({
             id_expense,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_expenseCategory,
             fk_id_expenseType,

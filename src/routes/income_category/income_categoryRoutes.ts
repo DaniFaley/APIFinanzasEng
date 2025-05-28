@@ -18,10 +18,9 @@ router.get('/:id_incomeCategory', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { name_incomeCategory, fk_id_user } = req.body;
+        const { name_incomeCategory } = req.body;
         const nuevo = await income_categoryServices.addIncome_Category({
-            name_incomeCategory,
-            fk_id_user
+            name_incomeCategory
         });
         res.send(nuevo);
     } catch (e) {
@@ -32,11 +31,10 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_incomeCategory, name_incomeCategory, fk_id_user } = req.body;
+        const { id_incomeCategory, name_incomeCategory } = req.body;
         const modificado = await income_categoryServices.updateIncome_Category({
             id_incomeCategory,
-            name_incomeCategory,
-            fk_id_user
+            name_incomeCategory
         });
         res.send(modificado);
     } catch (e) {

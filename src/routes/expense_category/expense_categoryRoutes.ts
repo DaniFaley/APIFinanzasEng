@@ -18,10 +18,9 @@ router.get('/:id_expenseCategory', async (req: Request, res: Response) => {
 // Insertar
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { name_expenseCategory, fk_id_user } = req.body;
+        const { name_expenseCategory } = req.body;
         const nuevo = await expense_categoryServices.addExpense_Category({
-            name_expenseCategory,
-            fk_id_user
+            name_expenseCategory
         });
         res.send(nuevo);
     } catch (e) {
@@ -32,11 +31,10 @@ router.post('/', async (req: Request, res: Response) => {
 // Modificar
 router.put('/', async (req: Request, res: Response) => {
     try {
-        const { id_expenseCategory, name_expenseCategory, fk_id_user } = req.body;
+        const { id_expenseCategory, name_expenseCategory } = req.body;
         const modificado = await expense_categoryServices.updateExpense_Category({
             id_expenseCategory,
-            name_expenseCategory,
-            fk_id_user
+            name_expenseCategory
         });
         res.send(modificado);
     } catch (e) {
