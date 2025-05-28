@@ -60,7 +60,7 @@ const addExpense_Type = (nuevo) => __awaiter(void 0, void 0, void 0, function* (
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO expense_type(name_expenseType,fk_id_user) values (?,?)', [nuevo.name_expenseType, nuevo.fk_id_user]);
+        const [results] = yield conexion.query('INSERT INTO expense_type(name_expenseType) values (?)', [nuevo.name_expenseType]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addExpense_Type = addExpense_Type;
 const updateExpense_Type = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE expense_type SET name_expenseType=?,fk_id_user=? WHERE id_expenseType=?', [modificado.name_expenseType, modificado.fk_id_user, modificado.id_expenseType]);
+        const [results] = yield conexion.query('UPDATE expense_type SET name_expenseType=? WHERE id_expenseType=?', [modificado.name_expenseType, modificado.id_expenseType]);
         return results;
     }
     catch (err) {

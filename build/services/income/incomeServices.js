@@ -60,7 +60,7 @@ const addIncome = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO income(commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_user, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]);
+        const [results] = yield conexion.query('INSERT INTO income(commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addIncome = addIncome;
 const updateIncome = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE income SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount=?,fk_id_incomeCategory=? WHERE id_income=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_user, modificado.fk_id_bankAccount, modificado.fk_id_incomeCategory, modificado.id_income]);
+        const [results] = yield conexion.query('UPDATE income SET commentary=?,amount=?,date=?,fk_id_bankAccount=?,fk_id_incomeCategory=? WHERE id_income=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_bankAccount, modificado.fk_id_incomeCategory, modificado.id_income]);
         return results;
     }
     catch (err) {

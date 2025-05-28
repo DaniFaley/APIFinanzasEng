@@ -60,7 +60,7 @@ const addExpense_Store = (nuevo) => __awaiter(void 0, void 0, void 0, function* 
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO expense_store(name_store,fk_id_user) values (?,?)', [nuevo.name_store, nuevo.fk_id_user]);
+        const [results] = yield conexion.query('INSERT INTO expense_store(name_store) values (?)', [nuevo.name_store]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addExpense_Store = addExpense_Store;
 const updateExpense_Store = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE expense_store SET name_store=?,fk_id_user=? WHERE id_expenseStore=?', [modificado.name_store, modificado.fk_id_user, modificado.id_expenseStore]);
+        const [results] = yield conexion.query('UPDATE expense_store SET name_store=? WHERE id_expenseStore=?', [modificado.name_store, modificado.id_expenseStore]);
         return results;
     }
     catch (err) {

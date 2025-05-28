@@ -60,7 +60,7 @@ const addBank_Account = (nuevo) => __awaiter(void 0, void 0, void 0, function* (
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO bank_account(name_bankAccount,fk_id_user) values (?,?)', [nuevo.name_bankAccount, nuevo.fk_id_user]);
+        const [results] = yield conexion.query('INSERT INTO bank_account(name_bankAccount) values (?)', [nuevo.name_bankAccount]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addBank_Account = addBank_Account;
 const updateBank_Account = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE bank_account SET name_bankAccount=?,fk_id_user=? WHERE id_bankAccount=?', [modificado.name_bankAccount, modificado.fk_id_user, modificado.id_bankAccount]);
+        const [results] = yield conexion.query('UPDATE bank_account SET name_bankAccount=? WHERE id_bankAccount=?', [modificado.name_bankAccount, modificado.id_bankAccount]);
         return results;
     }
     catch (err) {

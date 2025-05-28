@@ -61,10 +61,9 @@ router.get('/:id_expenseCategory', (req, res) => __awaiter(void 0, void 0, void 
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_expenseCategory, fk_id_user } = req.body;
+        const { name_expenseCategory } = req.body;
         const nuevo = yield expense_categoryServices.addExpense_Category({
-            name_expenseCategory,
-            fk_id_user
+            name_expenseCategory
         });
         res.send(nuevo);
     }
@@ -75,11 +74,10 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_expenseCategory, name_expenseCategory, fk_id_user } = req.body;
+        const { id_expenseCategory, name_expenseCategory } = req.body;
         const modificado = yield expense_categoryServices.updateExpense_Category({
             id_expenseCategory,
-            name_expenseCategory,
-            fk_id_user
+            name_expenseCategory
         });
         res.send(modificado);
     }

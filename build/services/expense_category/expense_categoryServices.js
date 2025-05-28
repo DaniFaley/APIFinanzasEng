@@ -60,7 +60,7 @@ const addExpense_Category = (nuevo) => __awaiter(void 0, void 0, void 0, functio
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO expense_category(name_expenseCategory,fk_id_user) values (?,?)', [nuevo.name_expenseCategory, nuevo.fk_id_user]);
+        const [results] = yield conexion.query('INSERT INTO expense_category(name_expenseCategory) values (?)', [nuevo.name_expenseCategory]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addExpense_Category = addExpense_Category;
 const updateExpense_Category = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE expense_category SET name_expenseCategory=?,fk_id_user=? WHERE id_expenseCategory=?', [modificado.name_expenseCategory, modificado.fk_id_user, modificado.id_expenseCategory]);
+        const [results] = yield conexion.query('UPDATE expense_category SET name_expenseCategory=? WHERE id_expenseCategory=?', [modificado.name_expenseCategory, modificado.id_expenseCategory]);
         return results;
     }
     catch (err) {

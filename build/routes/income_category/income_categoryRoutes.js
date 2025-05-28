@@ -61,10 +61,9 @@ router.get('/:id_incomeCategory', (req, res) => __awaiter(void 0, void 0, void 0
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_incomeCategory, fk_id_user } = req.body;
+        const { name_incomeCategory } = req.body;
         const nuevo = yield income_categoryServices.addIncome_Category({
-            name_incomeCategory,
-            fk_id_user
+            name_incomeCategory
         });
         res.send(nuevo);
     }
@@ -75,11 +74,10 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_incomeCategory, name_incomeCategory, fk_id_user } = req.body;
+        const { id_incomeCategory, name_incomeCategory } = req.body;
         const modificado = yield income_categoryServices.updateIncome_Category({
             id_incomeCategory,
-            name_incomeCategory,
-            fk_id_user
+            name_incomeCategory
         });
         res.send(modificado);
     }

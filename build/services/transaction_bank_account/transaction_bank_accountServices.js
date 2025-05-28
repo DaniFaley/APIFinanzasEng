@@ -60,7 +60,7 @@ const addTransaction = (nuevo) => __awaiter(void 0, void 0, void 0, function* ()
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO transaction_bank_account(commentary,amount,date,fk_id_user,fk_id_bankAccount_incoming,fk_id_bankAccount_exit) values (?,?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_user, nuevo.fk_id_bankAccount_incoming, nuevo.fk_id_bankAccount_exit]);
+        const [results] = yield conexion.query('INSERT INTO transaction_bank_account(commentary,amount,date,fk_id_bankAccount_incoming,fk_id_bankAccount_exit) values (?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_bankAccount_incoming, nuevo.fk_id_bankAccount_exit]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addTransaction = addTransaction;
 const updateTransaction = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE transaction_bank_account SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount_incoming=?,fk_id_bankAccount_exit=? WHERE id_transaction_bank_account=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_user, modificado.fk_id_bankAccount_incoming, modificado.fk_id_bankAccount_exit, modificado.id_transaction_bank_account]);
+        const [results] = yield conexion.query('UPDATE transaction_bank_account SET commentary=?,amount=?,date=?,fk_id_bankAccount_incoming=?,fk_id_bankAccount_exit=? WHERE id_transaction_bank_account=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_bankAccount_incoming, modificado.fk_id_bankAccount_exit, modificado.id_transaction_bank_account]);
         return results;
     }
     catch (err) {

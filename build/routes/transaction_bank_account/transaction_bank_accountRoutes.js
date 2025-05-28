@@ -61,12 +61,11 @@ router.get('/:id_transaction_bank_account', (req, res) => __awaiter(void 0, void
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { commentary, amount, date, fk_id_user, fk_id_bankAccount_incoming, fk_id_bankAccount_exit } = req.body;
+        const { commentary, amount, date, fk_id_bankAccount_incoming, fk_id_bankAccount_exit } = req.body;
         const nuevo = yield transactionServices.addTransaction({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount_incoming,
             fk_id_bankAccount_exit
         });
@@ -79,13 +78,12 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_transaction_bank_account, commentary, amount, date, fk_id_user, fk_id_bankAccount_incoming, fk_id_bankAccount_exit } = req.body;
+        const { id_transaction_bank_account, commentary, amount, date, fk_id_bankAccount_incoming, fk_id_bankAccount_exit } = req.body;
         const modificado = yield transactionServices.updateTransaction({
             id_transaction_bank_account,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount_incoming,
             fk_id_bankAccount_exit
         });

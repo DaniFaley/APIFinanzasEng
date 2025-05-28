@@ -61,10 +61,9 @@ router.get('/:id_expenseStore', (req, res) => __awaiter(void 0, void 0, void 0, 
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_store, fk_id_user } = req.body;
+        const { name_store } = req.body;
         const nuevo = yield expense_storeServices.addExpense_Store({
-            name_store,
-            fk_id_user
+            name_store
         });
         res.send(nuevo);
     }
@@ -75,11 +74,10 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_expenseStore, name_store, fk_id_user } = req.body;
+        const { id_expenseStore, name_store } = req.body;
         const modificado = yield expense_storeServices.updateExpense_Store({
             id_expenseStore,
-            name_store,
-            fk_id_user
+            name_store
         });
         res.send(modificado);
     }

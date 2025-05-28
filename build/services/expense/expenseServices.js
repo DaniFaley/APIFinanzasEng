@@ -60,7 +60,7 @@ const addExpense = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
             return { error: validacion.error };
         }
         //---------------------
-        const [results] = yield conexion.query('INSERT INTO expense(commentary,amount,date,fk_id_user,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore) values (?,?,?,?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_user, nuevo.fk_id_bankAccount, nuevo.fk_id_expenseCategory, nuevo.fk_id_expenseType, nuevo.fk_id_expenseStore]);
+        const [results] = yield conexion.query('INSERT INTO expense(commentary,amount,date,fk_id_bankAccount,fk_id_expenseCategory,fk_id_expenseType,fk_id_expenseStore) values (?,?,?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_bankAccount, nuevo.fk_id_expenseCategory, nuevo.fk_id_expenseType, nuevo.fk_id_expenseStore]);
         return results;
     }
     catch (err) {
@@ -72,7 +72,7 @@ exports.addExpense = addExpense;
 const updateExpense = (modificado) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         //Agregar validaciones
-        const [results] = yield conexion.query('UPDATE expense SET commentary=?,amount=?,date=?,fk_id_user=?,fk_id_bankAccount=?,fk_id_expenseCategory=?,fk_id_expenseType=?,fk_id_expenseStore=? WHERE id_expense=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_user, modificado.fk_id_bankAccount, modificado.fk_id_expenseCategory, modificado.fk_id_expenseType, modificado.fk_id_expenseStore, modificado.id_expense]);
+        const [results] = yield conexion.query('UPDATE expense SET commentary=?,amount=?,date=?,fk_id_bankAccount=?,fk_id_expenseCategory=?,fk_id_expenseType=?,fk_id_expenseStore=? WHERE id_expense=?', [modificado.commentary, modificado.amount, modificado.date, modificado.fk_id_bankAccount, modificado.fk_id_expenseCategory, modificado.fk_id_expenseType, modificado.fk_id_expenseStore, modificado.id_expense]);
         return results;
     }
     catch (err) {

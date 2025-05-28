@@ -61,10 +61,9 @@ router.get('/:id_bankAccount', (req, res) => __awaiter(void 0, void 0, void 0, f
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_bankAccount, fk_id_user } = req.body;
+        const { name_bankAccount } = req.body;
         const nuevo = yield bank_accountServices.addBank_Account({
-            name_bankAccount,
-            fk_id_user
+            name_bankAccount
         });
         res.send(nuevo);
     }
@@ -75,11 +74,10 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_bankAccount, name_bankAccount, fk_id_user } = req.body;
+        const { id_bankAccount, name_bankAccount } = req.body;
         const modificado = yield bank_accountServices.updateBank_Account({
             id_bankAccount,
-            name_bankAccount,
-            fk_id_user
+            name_bankAccount
         });
         res.send(modificado);
     }

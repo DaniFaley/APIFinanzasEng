@@ -61,12 +61,11 @@ router.get('/:id_income', (req, res) => __awaiter(void 0, void 0, void 0, functi
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
+        const { commentary, amount, date, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
         const nuevo = yield incomeServices.addIncome({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_incomeCategory
         });
@@ -79,13 +78,12 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_income, commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
+        const { id_income, commentary, amount, date, fk_id_bankAccount, fk_id_incomeCategory } = req.body;
         const modificado = yield incomeServices.updateIncome({
             id_income,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_incomeCategory
         });

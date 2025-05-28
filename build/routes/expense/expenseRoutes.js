@@ -61,12 +61,11 @@ router.get('/:id_expense', (req, res) => __awaiter(void 0, void 0, void 0, funct
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_expenseCategory, fk_id_expenseType, fk_id_expenseStore } = req.body;
+        const { commentary, amount, date, fk_id_bankAccount, fk_id_expenseCategory, fk_id_expenseType, fk_id_expenseStore } = req.body;
         const nuevo = yield expenseServices.addExpense({
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_expenseCategory,
             fk_id_expenseType,
@@ -81,13 +80,12 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_expense, commentary, amount, date, fk_id_user, fk_id_bankAccount, fk_id_expenseCategory, fk_id_expenseType, fk_id_expenseStore } = req.body;
+        const { id_expense, commentary, amount, date, fk_id_bankAccount, fk_id_expenseCategory, fk_id_expenseType, fk_id_expenseStore } = req.body;
         const modificado = yield expenseServices.updateExpense({
             id_expense,
             commentary,
             amount,
             date,
-            fk_id_user,
             fk_id_bankAccount,
             fk_id_expenseCategory,
             fk_id_expenseType,

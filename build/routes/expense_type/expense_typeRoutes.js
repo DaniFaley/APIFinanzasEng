@@ -61,10 +61,9 @@ router.get('/:id_expenseType', (req, res) => __awaiter(void 0, void 0, void 0, f
 // Insertar
 router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name_expenseType, fk_id_user } = req.body;
+        const { name_expenseType } = req.body;
         const nuevo = yield expense_typeServices.addExpense_Type({
-            name_expenseType,
-            fk_id_user
+            name_expenseType
         });
         res.send(nuevo);
     }
@@ -75,11 +74,10 @@ router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 // Modificar
 router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id_expenseType, name_expenseType, fk_id_user } = req.body;
+        const { id_expenseType, name_expenseType } = req.body;
         const modificado = yield expense_typeServices.updateExpense_Type({
             id_expenseType,
-            name_expenseType,
-            fk_id_user
+            name_expenseType
         });
         res.send(modificado);
     }
