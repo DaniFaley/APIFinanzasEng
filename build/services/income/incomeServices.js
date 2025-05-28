@@ -53,16 +53,17 @@ exports.findIncome = findIncome;
 //Para insertar a la tabla Income: No se incluye el id de la tabla
 const addIncome = (nuevo) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        //Validacion con zod: Lo puedes agregar a cualquier otro try que quieras validar
         const validacion = incomeSchema_1.IncomeSchema.safeParse(nuevo);
+        //Si la validacion falla: ! significa lo contrario de exito
         if (!validacion.success) {
-            console.log(validacion.error);
             return { error: validacion.error };
         }
+        //---------------------
         const [results] = yield conexion.query('INSERT INTO income(commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?)', [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]);
         return results;
     }
     catch (err) {
-        console.error("Error en addIncome:", err);
         return { error: "No se puede agregar el registro" };
     }
 });

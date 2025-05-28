@@ -38,23 +38,19 @@ export const findIncome = async (id_income:number) =>{
 //Para insertar a la tabla Income: No se incluye el id de la tabla
 export const addIncome = async(nuevo:IncomeAgregar) => {
     try {
+        //Validacion con zod: Lo puedes agregar a cualquier otro try que quieras validar
         const validacion = IncomeSchema.safeParse(nuevo);
-        if (!validacion.success) {
-            console.log(validacion.error);
-            return { error: validacion.error };
+        //Si la validacion falla: ! significa lo contrario de exito
+        if(!validacion.success){
+            return {error: validacion.error};
         }
-
-        const [results] = await conexion.query(
-            'INSERT INTO income(commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?)',
-            [nuevo.commentary, nuevo.amount, nuevo.date, nuevo.fk_id_bankAccount, nuevo.fk_id_incomeCategory]
-        );
+        //---------------------
+        const [results] = await conexion.query('INSERT INTO income(commentary,amount,date,fk_id_bankAccount,fk_id_incomeCategory) values (?,?,?,?,?)',[nuevo.commentary,nuevo.amount,nuevo.date,nuevo.fk_id_bankAccount,nuevo.fk_id_incomeCategory]);
         return results;
-    } catch (err) {
-        console.error("Error en addIncome:", err);
-        return { error: "No se puede agregar el registro" };
+    }catch(err){
+        return{error: "No se puede agregar el registro"}
     }
 }
-
 //Para modificar un registro de la tabla Income: Se incluye el id de la tabla al final de los elementos
 export const updateIncome = async (modificado:Income) => {
     try {
